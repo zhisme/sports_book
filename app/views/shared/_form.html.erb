@@ -1,0 +1,15 @@
+<%= simple_form_for(form_object, url: url, data: { turbo: false }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+
+  <% form_object.class::SIMPLE_FORM_ATTRIBUTES.each do |attr| %>
+    <%= f.input attr %>
+  <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

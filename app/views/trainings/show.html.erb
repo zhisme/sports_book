@@ -1,0 +1,13 @@
+<h1> <%= item.name %> <h1>
+
+<%= link_to 'Add exercise', new_training_exercise_path(params[:id]), class: 'btn btn-primary' %>
+
+<ul>
+  <% item.exercises.each do |exercise| %>
+    <li>
+      <%= link_to exercise.name, training_exercise_path(training_id: params[:id], id: exercise.id) %>
+    </li>
+
+  <% end %>
+</ul>
+

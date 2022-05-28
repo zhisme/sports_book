@@ -1,0 +1,12 @@
+<ul>
+  <% collection.each do |exercise_set| %>
+    <li>
+      <%= link_to "Edit", edit_exercise_exercise_set_path(exercise_id: params[:exercise_id], id: exercise_set.id) %>
+      <span> <%= exercise_set.value %> x <%= exercise_set.repetitions %> </span>
+      <%= link_to "Delete", exercise_exercise_set_path(exercise_id: params[:exercise_id], id: exercise_set.id), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
+    </li>
+  <% end %>
+</ul>

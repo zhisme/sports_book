@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "trainings#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :trainings, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :exercises, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    end
+  end
+
+  resources :exercises, only: [] do
+    resources :exercise_sets, only: [:new, :create, :index, :edit, :update, :destroy]
+  end
 end

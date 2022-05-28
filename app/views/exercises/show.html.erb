@@ -1,0 +1,11 @@
+<h1> <%= item.name %> </h1>
+
+<%= link_to 'Add exercise set', new_exercise_exercise_set_path(params[:id]), class: 'btn btn-primary' %>
+
+<ul>
+  <% dates.each do |date| %>
+    <li>
+      <%= link_to date, exercise_exercise_sets_path(exercise_id: params[:id], date: date) %>
+    </li>
+  <% end %>
+</ul>

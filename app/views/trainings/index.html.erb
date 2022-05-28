@@ -1,0 +1,13 @@
+<%= link_to 'Create new training', new_training_path, class: 'btn btn-primary' %>
+
+<% if collection.any? %>
+  <ul>
+    <% collection.each do |training| %>
+      <li>
+        <%= link_to(training.name, training_path(training)) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p> No collection available </p>
+<% end %>

@@ -18,5 +18,6 @@ module SportsBook
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.hosts << 'sports_book.test.com'
   end
 end
